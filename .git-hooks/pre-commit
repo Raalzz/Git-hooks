@@ -4,10 +4,11 @@ GREEN="\033[1;32m"
 NC="\033[0m"
 linter_exit_code=1
 staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
-# ./node_modules/.bin/eslint $staged_js_files --quiet --fix
 echo "staged files are ${staged_js_files}"
 
-npm run lint:fix $staged_js_files
+# npm run lint:fix $staged_js_files
+./node_modules/.bin/eslint $staged_js_files --quiet --fix
+
 
 echo "linter_exit_code is ${linter_exit_code}"
 linter_exit_code=$?
