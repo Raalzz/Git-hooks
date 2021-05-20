@@ -10,10 +10,10 @@ echo "staged files are ${staged_js_files}"
 ./node_modules/.bin/eslint $staged_js_files --quiet --fix
 
 
-echo "linter_exit_code is ${linter_exit_code}"
 linter_exit_code=$?
+echo "linter_exit_code is ${linter_exit_code}"
 
-echo "running  git add to ${$staged_js_files}"
+echo "running  git add to ${staged_js_files}"
 git add -f $staged_js_files
 
 if [ $linter_exit_code -ne 0 ]
