@@ -22,17 +22,19 @@
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 
 printf "Running Hoooksss"
+printf "staged files are ${STAGED_FILES} \n"
+
 
 #If there are no staged files then exit
-[ -z "$FILES" ] && exit 0
+[ -z "$STAGED_FILES" ] && exit 0
 
 printf "Running lint:fix"
 
 # Validate all the staged files
-npm run lint:fix $FILES
+npm run lint:fix $STAGED_FILES
 # echo "$FILES" | xargs npm run lint:fix
 
 # Add back the modified/prettified files to staging
-echo "$FILES" | xargs git add
+echo "$STAGED_FILES" | xargs git add
 
 exit 0
