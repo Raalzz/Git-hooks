@@ -24,9 +24,11 @@ NC="\033[0m"
 
 #get all staged files in a variable "STAGED_FILES"
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
 
 printf "Running Hoooksss \n"
 echo "staged files are ${STAGED_FILES} \n"
+echo "staged_js_files are  ${staged_js_files} \n"
 
 
 #If there are no staged files then exit
