@@ -1,0 +1,34 @@
+#!/bin/sh
+# RED="\033[1;31m"
+# GREEN="\033[1;32m"
+# NC="\033[0m"
+# linter_exit_code=1
+# staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
+# ./node_modules/.bin/eslint $staged_js_files --quiet --fix
+# linter_exit_code=$?
+# git add -f $staged_js_files
+# if [ $linter_exit_code -ne 0 ]
+# then
+#   echo "${RED} ❌ Linter errors have occurred ( ͡ಥ ͜ʖ ͡ಥ)${NC}"
+#   exit 1
+# else
+#   echo "${GREEN} ✔ Eslint did not find any errors [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]${NC}"
+#   exit 0
+# fi
+
+#New Implementation:
+
+#get all staged files in a variable "STAGED_FILES"
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+#If there are no staged files then exit
+[ -z "$FILES" ] && exit 0
+
+# Validate all the staged files
+npm run lint:fix $FILES
+# echo "$FILES" | xargs npm run lint:fix
+
+# Add back the modified/prettified files to staging
+echo "$FILES" | xargs git add
+
+exit 0

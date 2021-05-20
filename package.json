@@ -15,13 +15,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "test:nowatch": "npm run test -- --watchAll=false --passWithNoTests",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
+    "validate": "npm-run-all --parallel format lint:fix test:nowatch build"
   },
   "browserslist": {
     "production": [
@@ -34,5 +35,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.0"
   }
 }
