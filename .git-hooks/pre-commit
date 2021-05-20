@@ -37,8 +37,8 @@ echo "staged_js_files are  ${staged_js_files} \n"
 printf "Running lint:fix \n"
 
 # Validate all the staged files
-npm run lint:fix $STAGED_FILES
-# echo "$FILES" | xargs npm run lint:fix
+# npm run lint:fix $STAGED_FILES
+echo "$STAGED_FILES" | xargs npm run lint:fix
 
 # Add back the modified/prettified files to staging
 echo "$STAGED_FILES" | xargs git add
