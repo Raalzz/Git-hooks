@@ -26,6 +26,8 @@ printf "Running Hoooksss"
 #If there are no staged files then exit
 [ -z "$FILES" ] && exit 0
 
+printf "Running lint:fix"
+
 # Validate all the staged files
 npm run lint:fix $FILES
 # echo "$FILES" | xargs npm run lint:fix
