@@ -6,7 +6,8 @@ linter_exit_code=1
 staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
 echo "staged files are ${staged_js_files}"
 
-npm run lint:fix $staged_js_files
+npm run format $staged_js_files
+# npm run lint:fix $staged_js_files
 # ./node_modules/.bin/eslint $staged_js_files --quiet --fix
 
 
