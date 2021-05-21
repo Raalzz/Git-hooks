@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:nowatch": "npm run test -- --watchAll=false --passWithNoTests",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
     "format": "npm run prettier -- --write",
