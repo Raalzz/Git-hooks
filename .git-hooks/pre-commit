@@ -33,7 +33,7 @@ git add -f $staged_js_files
 
 if [ $linter_exit_code -ne 0 ]
 then
-  echo "${RED} ❌ Linter errors have occurred ( ͡ಥ ͜ʖ ͡ಥ)${NC}"
+  echo "${RED} ❌ 🥵 Linter errors have occurred ( ͡ಥ ͜ʖ ͡ಥ)${NC}"
   exit 1
 else
   echo "${GREEN} ✔ Eslint did not find any errors [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]${NC}"
@@ -81,4 +81,53 @@ fi
 # # Add back the modified/prettified files to staging
 # echo "$STAGED_FILES" | xargs git add
 
+# exit 0
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+# # run type-check
+# yarn run --silent tsc
+# tsc_exit_code=$?
+
+# # check the tsc exit code
+# if [ $tsc_exit_code -ne 0 ]; then
+#     echo "🥵 tsc failed"
+#     exit 1
+# else
+#     echo "👍 tsc"
+# fi
+
+# # run linter on staged files => save exit code for later
+# yarn run --silent eslint $staged_files --quiet --fix
+# linter_exit_code=$?
+
+# # add files auto-fixed by the linter
+# git add $staged_files
+
+# # check linter exit code
+# if [ $linter_exit_code -ne 0 ]; then
+#     echo "🥵 lint failed"
+#     exit 1
+# else
+#     echo "👍 lint"
+# fi
+
+# # return 0-exit code
+# echo "🎉 all good to go"
 # exit 0
