@@ -3,8 +3,8 @@ RED="\033[1;31m"
 GREEN="\033[1;32m"
 NC="\033[0m"
 linter_exit_code=1
-staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
-FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+# staged_js_files=$(git diff --cached --diff-filter=d --name-only | grep .js$)
+staged_js_files=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 echo "staged files are ${staged_js_files}"
 echo "files files are ${FILES}"
 
