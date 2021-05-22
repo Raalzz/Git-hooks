@@ -36,7 +36,7 @@ then
   echo "${RED} ❌ 🥵 Linter errors have occurred ( ͡ಥ ͜ʖ ͡ಥ)${NC}"
   exit 1
 else
-  echo "${GREEN} ✔ Eslint did not find any errors [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]${NC}"
+  echo "${GREEN} ✔ 👍 🥵 Eslint did not find any errors [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]${NC}"
   exit 0
 fi
 # No, no, no! fix that validation bug first.
