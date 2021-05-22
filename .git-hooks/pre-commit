@@ -22,7 +22,7 @@ echo "Running Prettier"
 
 echo "Running Tests"
 # Run tests related to staged files
-./node_modules/.bin/jest --bail --findRelatedTests $staged_js_files
+./node_modules/.bin/jest --bail --findRelatedTests $staged_js_files --passWithNoTests
 
 
 linter_exit_code=$?
