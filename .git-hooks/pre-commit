@@ -4,13 +4,25 @@ GREEN="\033[1;32m"
 NC="\033[0m"
 linter_exit_code=1
 staged_js_files=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+# skip if there are no js or ts files
+if [ -z "$staged_js_files" ]; then
+    exit 0
+fi
+
 echo "staged files are ${staged_js_files}"
 
-# prettier $staged_js_files --write
-./node_modules/.bin/prettier $staged_js_files --ignore-unknown --write
-# ./node_modules/.bin/jest $staged_js_files --ignore-unknown
-# npm run lint:fix $staged_js_files
+echo "Running Lint"
+# Run Lint to staged files
 ./node_modules/.bin/eslint $staged_js_files --quiet --fix
+
+echo "Running Prettier"
+# Run Prettier to staged files
+./node_modules/.bin/prettier $staged_js_files --ignore-unknown --write
+
+echo "Running Tests"
+# Run tests related to staged files
+./node_modules/.bin/jest --bail --findRelatedTests $staged_js_files
 
 
 linter_exit_code=$?
@@ -27,6 +39,10 @@ else
   echo "${GREEN} ✔ Eslint did not find any errors [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]${NC}"
   exit 0
 fi
+# No, no, no! fix that validation bug first.
+# Do you really believe your validation is working??? Run the test before commiting, dude!
+# I can play this game all day long...
+# Please you can do better than this.
 
 #
 #
