@@ -1,7 +1,4 @@
 #!/bin/sh
-RED="\033[1;31m"
-GREEN="\033[1;32m"
-NC="\033[0m"
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 
 # skip if there are no staged files
