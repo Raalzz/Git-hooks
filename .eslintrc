@@ -39,6 +39,7 @@
         "allowTaggedTemplates": true
       }
     ],
+    "no-unused-vars": 0,
     "no-param-reassign": [
       2,
       {
