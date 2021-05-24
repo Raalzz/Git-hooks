@@ -19,27 +19,26 @@ echo "Running Prettier..✨✨✨"
 git add -f $STAGED_FILES
 
 # check linter exit code
-# if [ $LINTER_EXIT_CODE -ne 0 ]; then
-#     echo "No, no, no! fix those lint errors first..😠"
-#     exit 1
-# else
-#     echo "👍 lint"
-# fi
+if [ $LINTER_EXIT_CODE -ne 0 ]; then
+    echo "No, no, no! fix those lint errors first..😠"
+    exit 1
+else
+    echo "👍 lint"
+fi
 
 # run tests related to staged files
 echo "Running Tests"
-echo " staged files $STAGED_FILES"
-./node_modules/.bin/jest --findRelatedTests "src/App.js"
-# JEST_EXIT_CODE=$?
+./node_modules/.bin/jest --bail --findRelatedTests $STAGED_FILES --passWithNoTests
+JEST_EXIT_CODE=$?
 
 # check jest exit code
-# if [ $JEST_EXIT_CODE -ne 0 ]; then
-#     echo "Please you can do better than this..🙏🙏🙏"
-#     exit 1
-# else
-#     echo "👍 test"
-# fi
+if [ $JEST_EXIT_CODE -ne 0 ]; then
+    echo "Please you can do better than this..🙏🙏🙏"
+    exit 1
+else
+    echo "👍 test"
+fi
 
 # return 0-exit code
-# echo "🎉 you are a rockstar..🔥🔥🔥"
-# exit 0
+echo "🎉 you are a rockstar..🔥🔥🔥"
+exit 0
