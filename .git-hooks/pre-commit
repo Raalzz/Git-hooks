@@ -19,12 +19,12 @@ echo "Running Prettier..✨✨✨"
 git add -f $STAGED_FILES
 
 # check linter exit code
-if [ $LINTER_EXIT_CODE -ne 0 ]; then
-    echo "No, no, no! fix those lint errors first..😠"
-    exit 1
-else
-    echo "👍 lint"
-fi
+# if [ $LINTER_EXIT_CODE -ne 0 ]; then
+#     echo "No, no, no! fix those lint errors first..😠"
+#     exit 1
+# else
+#     echo "👍 lint"
+# fi
 
 # run tests related to staged files
 echo "Running Tests"
@@ -40,5 +40,5 @@ JEST_EXIT_CODE=$?
 # fi
 
 # return 0-exit code
-echo "🎉 you are a rockstar..🔥🔥🔥"
-exit 0
+# echo "🎉 you are a rockstar..🔥🔥🔥"
+# exit 0
