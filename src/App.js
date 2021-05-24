@@ -17,7 +17,6 @@ function App() {
   // };
 
   // dfwdf;
-  // dfwdf;
   return (
     <div className="App">
       <h1>Dummy Project with Husky Setup</h1>
