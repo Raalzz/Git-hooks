@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <h1>Dummy Project with Husky Setup</h1>
+      <h1>Dummy Project with Husky Setup</h1>
       <h2>dsfvffdf</h2>
       <a
         className="App-link"
