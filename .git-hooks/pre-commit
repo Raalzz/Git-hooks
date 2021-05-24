@@ -29,7 +29,7 @@ git add -f $STAGED_FILES
 # run tests related to staged files
 echo "Running Tests"
 echo " staged files $STAGED_FILES"
-./node_modules/.bin/jest
+./node_modules/.bin/jest --findRelatedTests $STAGED_FILES
 # JEST_EXIT_CODE=$?
 
 # check jest exit code
