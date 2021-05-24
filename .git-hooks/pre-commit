@@ -28,6 +28,7 @@ fi
 
 # run tests related to staged files
 echo "Running Tests"
+echo "staged files are $STAGED_FILES"
 ./node_modules/.bin/jest --bail --findRelatedTests $STAGED_FILES --passWithNoTests
 JEST_EXIT_CODE=$?
 
